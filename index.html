@@ -160,7 +160,7 @@
     </div>
 
     <script>
-    /* --- JavaScript Logic --- */
+/* --- JavaScript Logic --- */
 
     // 1. THE DATABASE
     const masterArchetypeList = ["Offensive", "Defensive", "Conjuring", "Traversal", "Sensory", "Healing", "Utility"];
@@ -176,155 +176,14 @@
         "Utility": ["Healing", "Sensory", "Traversal", "Conjuring", "Defensive", "Offensive"]
     };
 
-    // This data object is now a direct 1:1 copy of the data you provided.
     const classNames = {
-      "Offensive|Defensive|Melee": "Brawler",
-      "Offensive|Utility|Melee": "War Shaman",
-      "Offensive|Traversal|Melee": "Scout",
-      "Offensive|Healing|Melee": "Combat Medic",
-      "Offensive|Conjuring|Melee": "Warmage",
-      "Offensive|Sensory|Melee": "Warmonk",
-      "Offensive|Eccentric|Melee": "Profaned Duelist",
-      "Offensive|Defensive|Ranged": "Ranger",
-      "Offensive|Utility|Ranged": "Technician",
-      "Offensive|Traversal|Ranged": "Voyager",
-      "Offensive|Healing|Ranged": "Cleric",
-      "Offensive|Conjuring|Ranged": "Wizard",
-      "Offensive|Sensory|Ranged": "Illusionist",
-      "Offensive|Eccentric|Ranged": "Dancer",
-      "Offensive|Defensive|Neither": "Fighter",
-      "Offensive|Utility|Neither": "Professional",
-      "Offensive|Traversal|Neither": "Globetrotter",
-      "Offensive|Healing|Neither": "Spiritualist",
-      "Offensive|Conjuring|Neither": "Arcanist",
-      "Offensive|Sensory|Neither": "Manipulator",
-      "Offensive|Eccentric|Neither": "Rogue",
-      "Defensive|Offensive|Melee": "Defender",
-      "Defensive|Utility|Melee": "Creator",
-      "Defensive|Traversal|Melee": "Pioneer",
-      "Defensive|Healing|Melee": "Operator",
-      "Defensive|Conjuring|Melee": "Shield Mage",
-      "Defensive|Sensory|Melee": "Sensor",
-      "Defensive|Eccentric|Melee": "Jester",
-      "Defensive|Offensive|Ranged": "Harbinger",
-      "Defensive|Utility|Ranged": "Utility Expert",
-      "Defensive|Traversal|Ranged": "Wayfinder",
-      "Defensive|Healing|Ranged": "Action Medic",
-      "Defensive|Conjuring|Ranged": "Conjurer",
-      "Defensive|Sensory|Ranged": "Obstructor",
-      "Defensive|Eccentric|Ranged": "Individualist",
-      "Defensive|Offensive|Neither": "Breaker",
-      "Defensive|Utility|Neither": "Crafter",
-      "Defensive|Traversal|Neither": "Pilgrim",
-      "Defensive|Healing|Neither": "Adhesor",
-      "Defensive|Conjuring|Neither": "Soothe Sayer",
-      "Defensive|Sensory|Neither": "Verbalist",
-      "Defensive|Eccentric|Neither": "Odditor",
-      "Utility|Offensive|Melee": "Battle Mechanic",
-      "Utility|Defensive|Melee": "Defense Mechanic",
-      "Utility|Traversal|Melee": "Engineer",
-      "Utility|Healing|Melee": "Repairman",
-      "Utility|Conjuring|Melee": "Recastor",
-      "Utility|Sensory|Melee": "Silver Tongue",
-      "Utility|Eccentric|Melee": "Jack of Trades",
-      "Utility|Offensive|Ranged": "Mad Scientist",
-      "Utility|Defensive|Ranged": "Scientist",
-      "Utility|Traversal|Ranged": "Automotivator",
-      "Utility|Healing|Ranged": "Surgeon",
-      "Utility|Conjuring|Ranged": "Inventor",
-      "Utility|Sensory|Ranged": "Pulsor",
-      "Utility|Eccentric|Ranged": "Entertainer",
-      "Utility|Offensive|Neither": "Creations Expert",
-      "Utility|Defensive|Neither": "Defensive Creations Expert",
-      "Utility|Traversal|Neither": "Merchant",
-      "Utility|Healing|Neither": "Nomad",
-      "Utility|Conjuring|Neither": "Wanderer",
-      "Utility|Sensory|Neither": "Seer",
-      "Utility|Eccentric|Neither": "Oddity",
-      "Traversal|Offensive|Melee": "Explorer",
-      "Traversal|Defensive|Melee": "Vistor",
-      "Traversal|Utility|Melee": "Prospector",
-      "Traversal|Healing|Melee": "Holidaymaker",
-      "Traversal|Conjuring|Melee": "Sightseer",
-      "Traversal|Sensory|Melee": "Nightstalker",
-      "Traversal|Eccentric|Melee": "Gadabout",
-      "Traversal|Offensive|Ranged": "Rover",
-      "Traversal|Defensive|Ranged": "Scout",
-      "Traversal|Utility|Ranged": "Stalker",
-      "Traversal|Healing|Ranged": "Fare",
-      "Traversal|Conjuring|Ranged": "Commuter",
-      "Traversal|Sensory|Ranged": "Tripper",
-      "Traversal|Eccentric|Ranged": "Surveyor",
-      "Traversal|Offensive|Neither": "Backpacker",
-      "Traversal|Defensive|Neither": "Stepper",
-      "Traversal|Utility|Neither": "Tourer",
-      "Traversal|Healing|Neither": "Passenger",
-      "Traversal|Conjuring|Neither": "Excursionist",
-      "Traversal|Sensory|Neither": "Pacemaker",
-      "Traversal|Eccentric|Neither": "Jet Setter",
-      "Healing|Offensive|Melee": "Mystmonk",
-      "Healing|Defensive|Melee": "Protector",
-      "Healing|Traversal|Melee": "Extractor",
-      "Healing|Utility|Melee": "Buffmonk",
-      "Healing|Conjuring|Melee": "Voidsaint",
-      "Healing|Sensory|Melee": "Psymyst Monk",
-      "Healing|Eccentric|Melee": "Frontline Healer",
-      "Healing|Offensive|Ranged": "Mysticant",
-      "Healing|Defensive|Ranged": "Warding Medic",
-      "Healing|Traversal|Ranged": "Scout Medic",
-      "Healing|Utility|Ranged": "Myst Overseer",
-      "Healing|Conjuring|Ranged": "Myst Uniter",
-      "Healing|Sensory|Ranged": "Psymyst Scout",
-      "Healing|Eccentric|Ranged": "Backline Healer",
-      "Healing|Offensive|Neither": "Calamyst",
-      "Healing|Defensive|Neither": "Stalwart Mystic",
-      "Healing|Traversal|Neither": "Nomad Medic",
-      "Healing|Utility|Neither": "Overseer",
-      "Healing|Conjuring|Neither": "Myschemist",
-      "Healing|Sensory|Neither": "Therapeune",
-      "Healing|Eccentric|Neither": "Doctor",
-      "Conjuring|Offensive|Melee": "Mystborn Battlesage",
-      "Conjuring|Defensive|Melee": "Palladian Summoner",
-      "Conjuring|Traversal|Melee": "The Voidsent",
-      "Conjuring|Utility|Melee": "Platoon Breaker",
-      "Conjuring|Healing|Melee": "Uniter",
-      "Conjuring|Sensory|Melee": "Field Conjurer",
-      "Conjuring|Eccentric|Melee": "Void Duelist",
-      "Conjuring|Offensive|Ranged": "War Summoner",
-      "Conjuring|Defensive|Ranged": "Barricader",
-      "Conjuring|Traversal|Ranged": "Escapist",
-      "Conjuring|Utility|Ranged": "War Tactician",
-      "Conjuring|Healing|Ranged": "Support Summoner",
-      "Conjuring|Sensory|Ranged": "Tactical Overseer",
-      "Conjuring|Eccentric|Ranged": "Profaned Deliverer",
-      "Conjuring|Offensive|Neither": "Summonspiter",
-      "Conjuring|Defensive|Neither": "Protective Conjurer",
-      "Conjuring|Traversal|Neither": "Deliverer",
-      "Conjuring|Utility|Neither": "Void Crafter",
-      "Conjuring|Healing|Neither": "Void Medic",
-      "Conjuring|Sensory|Neither": "Void Sensor",
-      "Conjuring|Eccentric|Neither": "Conjurer",
-      "Sensory|Offensive|Melee": "Ghost",
-      "Sensory|Defensive|Melee": "Deflector",
-      "Sensory|Traversal|Melee": "Demon of Speed",
-      "Sensory|Utility|Melee": "Pathshredder",
-      "Sensory|Healing|Melee": "Mercyer",
-      "Sensory|Conjuring|Melee": "Voidblinder",
-      "Sensory|Eccentric|Melee": "Rogue",
-      "Sensory|Offensive|Ranged": "Assassin",
-      "Sensory|Defensive|Ranged": "Guardknower",
-      "Sensory|Traversal|Ranged": "Omega Scout",
-      "Sensory|Utility|Ranged": "Recon",
-      "Sensory|Healing|Ranged": "Spy Medic",
-      "Sensory|Conjuring|Ranged": "Prediconjurer",
-      "Sensory|Eccentric|Ranged": "Shutter",
-      "Sensory|Offensive|Neither": "Predictor",
-      "Sensory|Defensive|Neither": "Wiser",
-      "Sensory|Traversal|Neither": "Racer",
-      "Sensory|Utility|Neither": "Craftmaster",
-      "Sensory|Healing|Neither": "Diagnostician",
-      "Sensory|Conjuring|Neither": "Reader",
-      "Sensory|Eccentric|Neither": "Knower"
+        "Offensive|Defensive|Melee": "Brawler", "Offensive|Defensive|Ranged": "Ranger", "Offensive|Defensive|Neither": "Fighter", "Offensive|Conjuring|Melee": "Warmage", "Offensive|Conjuring|Ranged": "Wizard", "Offensive|Conjuring|Neither": "Arcanist", "Offensive|Traversal|Melee": "Scout", "Offensive|Traversal|Ranged": "Voyager", "Offensive|Traversal|Neither": "Globetrotter", "Offensive|Sensory|Melee": "Warmonk", "Offensive|Sensory|Ranged": "Illusionist", "Offensive|Sensory|Neither": "Manipulator", "Offensive|Healing|Melee": "Combat Medic", "Offensive|Healing|Ranged": "Cleric", "Offensive|Healing|Neither": "Spiritualist", "Offensive|Utility|Melee": "War Shaman", "Offensive|Utility|Ranged": "Technician", "Offensive|Utility|Neither": "Professional", "Offensive|Eccentric|Melee": "Profaned Duelist", "Offensive|Eccentric|Ranged": "Dancer", "Offensive|Eccentric|Neither": "Rogue",
+        "Defensive|Offensive|Melee": "Defender", "Defensive|Conjuring|Melee": "Shield Mage", "Defensive|Traversal|Melee": "Pioneer", "Defensive|Sensory|Melee": "Sensor", "Defensive|Healing|Melee": "Operator", "Defensive|Utility|Melee": "Creator", "Defensive|Eccentric|Melee": "Jester", "Defensive|Offensive|Ranged": "Harbinger", "Defensive|Utility|Ranged": "Utility Expert", "Defensive|Traversal|Ranged": "Wayfinder", "Defensive|Healing|Ranged": "Action Medic", "Defensive|Conjuring|Ranged": "Conjurer", "Defensive|Sensory|Ranged": "Obstructor", "Defensive|Eccentric|Ranged": "Individualist", "Defensive|Offensive|Neither": "Breaker", "Defensive|Utility|Neither": "Crafter", "Defensive|Traversal|Neither": "Pilgrim", "Defensive|Healing|Neither": "Adhesor", "Defensive|Conjuring|Neither": "Soothe Sayer", "Defensive|Sensory|Neither": "Verbalist", "Defensive|Eccentric|Neither": "Odditor",
+        "Utility|Offensive|Melee": "Battle Mechanic", "Utility|Defensive|Melee": "Defense Mechanic", "Utility|Traversal|Melee": "Engineer", "Utility|Healing|Melee": "Repairman", "Utility|Conjuring|Melee": "Recastor", "Utility|Sensory|Melee": "Silver Tongue", "Utility|Eccentric|Melee": "Jack of Trades", "Utility|Offensive|Ranged": "Mad Scientist", "Utility|Defensive|Ranged": "Scientist", "Utility|Traversal|Ranged": "Automotivator", "Utility|Healing|Ranged": "Surgeon", "Utility|Conjuring|Ranged": "Inventor", "Utility|Sensory|Ranged": "Pulsor", "Utility|Eccentric|Ranged": "Entertainer", "Utility|Offensive|Neither": "Creations Expert", "Utility|Defensive|Neither": "Defensive Creations Expert", "Utility|Traversal|Neither": "Merchant", "Utility|Healing|Neither": "Nomad", "Utility|Conjuring|Neither": "Wanderer", "Utility|Sensory|Neither": "Seer", "Utility|Eccentric|Neither": "Oddity",
+        "Traversal|Offensive|Melee": "Explorer", "Traversal|Defensive|Melee": "Vistor", "Traversal|Utility|Melee": "Prospector", "Traversal|Healing|Melee": "Holidaymaker", "Traversal|Conjuring|Melee": "Sightseer", "Traversal|Sensory|Melee": "Nightstalker", "Traversal|Eccentric|Melee": "Gadabout", "Traversal|Offensive|Ranged": "Rover", "Traversal|Defensive|Ranged": "Scout", "Traversal|Utility|Ranged": "Stalker", "Traversal|Healing|Ranged": "Fare", "Traversal|Conjuring|Ranged": "Commuter", "Traversal|Sensory|Ranged": "Tripper", "Traversal|Eccentric|Ranged": "Surveyor", "Traversal|Offensive|Neither": "Backpacker", "Traversal|Defensive|Neither": "Stepper", "Traversal|Utility|Neither": "Tourer", "Traversal|Healing|Neither": "Passenger", "Traversal|Conjuring|Neither": "Excursionist", "Traversal|Sensory|Neither": "Pacemaker", "Traversal|Eccentric|Neither": "Jet Setter",
+        "Healing|Offensive|Melee": "Mystmonk", "Healing|Defensive|Melee": "Protector", "Healing|Traversal|Melee": "Extractor", "Healing|Utility|Melee": "Buffmonk", "Healing|Conjuring|Melee": "Voidsaint", "Healing|Sensory|Melee": "Psymyst Monk", "Healing|Eccentric|Melee": "Frontline Healer", "Healing|Offensive|Ranged": "Mysticant", "Healing|Defensive|Ranged": "Warding Medic", "Healing|Traversal|Ranged": "Scout Medic", "Healing|Utility|Ranged": "Myst Overseer", "Healing|Conjuring|Ranged": "Myst Uniter", "Healing|Sensory|Ranged": "Psymyst Scout", "Healing|Eccentric|Ranged": "Backline Healer", "Healing|Offensive|Neither": "Calamyst", "Healing|Defensive|Neither": "Stalwart Mystic", "Healing|Traversal|Neither": "Nomad Medic", "Healing|Utility|Neither": "Overseer", "Healing|Conjuring|Neither": "Myschemist", "Healing|Sensory|Neither": "Therapeune", "Healing|Eccentric|Neither": "Doctor",
+        "Conjuring|Offensive|Melee": "Mystborn Battlesage", "Conjuring|Defensive|Melee": "Palladian Summoner", "Conjuring|Traversal|Melee": "The Voidsent", "Conjuring|Utility|Melee": "Platoon Breaker", "Conjuring|Healing|Melee": "Uniter", "Conjuring|Sensory|Melee": "Field Conjurer", "Conjuring|Eccentric|Melee": "Void Duelist", "Conjuring|Offensive|Ranged": "War Summoner", "Conjuring|Defensive|Ranged": "Barricader", "Conjuring|Traversal|Ranged": "Escapist", "Conjuring|Utility|Ranged": "War Tactician", "Conjuring|Healing|Ranged": "Support Summoner", "Conjuring|Sensory|Ranged": "Tactical Overseer", "Conjuring|Eccentric|Ranged": "Profaned Deliverer", "Conjuring|Offensive|Neither": "Summonspiter", "Conjuring|Defensive|Neither": "Protective Conjurer", "Conjuring|Traversal|Neither": "Deliverer", "Conjuring|Utility|Neither": "Void Crafter", "Conjuring|Healing|Neither": "Void Medic", "Conjuring|Sensory|Neither": "Void Sensor", "Conjuring|Eccentric|Neither": "Conjurer",
+        "Sensory|Offensive|Melee": "Ghost", "Sensory|Defensive|Melee": "Deflector", "Sensory|Traversal|Melee": "Demon of Speed", "Sensory|Utility|Melee": "Pathshredder", "Sensory|Healing|Melee": "Mercyer", "Sensory|Conjuring|Melee": "Voidblinder", "Sensory|Eccentric|Melee": "Rogue", "Sensory|Offensive|Ranged": "Assassin", "Sensory|Defensive|Ranged": "Guardknower", "Sensory|Traversal|Ranged": "Omega Scout", "Sensory|Utility|Ranged": "Recon", "Sensory|Healing|Ranged": "Spy Medic", "Sensory|Conjuring|Ranged": "Prediconjurer", "Sensory|Eccentric|Ranged": "Shutter", "Sensory|Offensive|Neither": "Predictor", "Sensory|Defensive|Neither": "Wiser", "Sensory|Traversal|Neither": "Racer", "Sensory|Utility|Neither": "Craftmaster", "Sensory|Healing|Neither": "Diagnostician", "Sensory|Conjuring|Neither": "Reader", "Sensory|Eccentric|Neither": "Knower"
     };
 
     // 2. GET HTML ELEMENTS
@@ -372,36 +231,36 @@
         }
 
         resultsContainer.classList.remove('hidden');
-        classTitleEl.textContent = '...'; 
 
-        if (secondary === "Eccentric") {
-            const eccentricTitle = `Eccentric ${primary}`;
-            classTitleEl.textContent = eccentricTitle;
-            weakestEl.textContent = "N/A (All others sealed)";
-            fullRankingEl.innerHTML = `<li>1. ${primary}</li><li style="color: var(--text-muted-color);">(All other archetypes are inaccessible)</li>`;
-            return;
-        }
-
+        // --- Step 1: Always look up the class name first ---
         const key = `${primary}|${secondary}|${style}`;
         const className = classNames[key] || "Unknown Combination";
-
-        const primaryDataRanking = rankingLogic[primary];
-        const finalRanking = [primary, secondary];
-        primaryDataRanking.forEach(arch => {
-            if (arch !== secondary) {
-                finalRanking.push(arch);
-            }
-        });
-        
         classTitleEl.textContent = className;
-        weakestEl.textContent = finalRanking[finalRanking.length - 1];
-        
-        fullRankingEl.innerHTML = '';
-        finalRanking.forEach((arch, index) => {
-            const li = document.createElement('li');
-           li.textContent = arch;
-            fullRankingEl.appendChild(li);
-        });
+
+        // --- Step 2: Handle the ranking display based on whether it's Eccentric ---
+        if (secondary === "Eccentric") {
+            // Handle the unique ranking display for Eccentric classes
+            weakestEl.textContent = "N/A (All others sealed)";
+            fullRankingEl.innerHTML = `<li>${primary}</li><li style="color: var(--text-muted-color);">(All other archetypes are inaccessible)</li>`;
+        } else {
+            // Handle the normal ranking for all other combinations
+            const primaryDataRanking = rankingLogic[primary];
+            const finalRanking = [primary, secondary];
+            primaryDataRanking.forEach(arch => {
+                if (arch !== secondary) {
+                    finalRanking.push(arch);
+                }
+            });
+            
+            weakestEl.textContent = finalRanking[finalRanking.length - 1];
+            
+            fullRankingEl.innerHTML = '';
+            finalRanking.forEach((arch) => {
+                const li = document.createElement('li');
+                li.textContent = arch;
+                fullRankingEl.appendChild(li);
+            });
+        }
     }
 
     // 4. EVENT LISTENERS
